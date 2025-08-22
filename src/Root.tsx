@@ -6,7 +6,7 @@ import { TabsPage } from './TabsPage';
 import { TabItem } from './TabItem';
 
 export const Root = () => (
-  <HashRouter>
+  <HashRouter future={{ v7_startTransition: true }}>
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />

@@ -6,7 +6,9 @@ import { useEffect } from 'react';
 import classNames from 'classnames';
 
 export const App = () => {
-  const location = useLocation();
+  const { pathname } = useLocation();
+  console.log(location);
+
 
   useEffect(() => {
     document.documentElement.classList.add('has-navbar-fixed-top');
@@ -20,11 +22,21 @@ export const App = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className={classNames('navbar-item', { 'is-active': location.pathname === '/' })}>
-              Home
+            <Link
+              to="/"
+              className={classNames('navbar-item', {
+                'is-active': pathname === "/" || location.pathname === "",
+              })}
+            >
+              <div>Home</div>
             </Link>
-            <Link to="/tabs" className={classNames('navbar-item', { 'is-active': location.pathname.startsWith('/tabs') })}>
-              Tabs
+            <Link
+              to="/tabs"
+              className={classNames('navbar-item', {
+                'is-active': pathname.startsWith("/tabs"),
+              })}
+            >
+              <div>Tabs</div>
             </Link>
           </div>
         </div>
